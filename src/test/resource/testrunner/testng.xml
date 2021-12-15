@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite" verbose="3">
+  
+  <test name="Google Test">
+      <classes>
+      <class name="com.qa.opencart.tests.LogInPageTest"/>
+      </classes>
+  </test> <!-- Test --> 
+   
+  <test name="OpenCartTest">    
+    <classes>
+       <class name="appTest.OpenCartTest"/>
+    </classes>
+     
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
