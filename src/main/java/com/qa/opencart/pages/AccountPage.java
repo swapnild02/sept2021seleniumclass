@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.qa.opencart.utility.Constants;
+import com.qa.opencart.utility.ConstantsOpenCart;
 import com.qa.opencart.utility.ElementsUlility;
 
 public class AccountPage {
@@ -26,7 +26,7 @@ public class AccountPage {
 	
 	
 	public String getAccountPageTitle() {
-		return eu.getTitle(Constants.ACCOUNT_PAGE_TITLE, Constants.DEFAULT_TIME_OUT);
+		return eu.getTitle(ConstantsOpenCart.ACCOUNT_PAGE_TITLE, ConstantsOpenCart.DEFAULT_TIME_OUT);
 	}
 	
 	public boolean isLogOutLinkExist() {
@@ -41,7 +41,7 @@ public class AccountPage {
 	}
 	
 	public List<String> getAccountSecList() {
-		List<WebElement> accountsectionlist=eu.findElements(accountSection_cssSelector, Constants.DEFAULT_TIME_OUT);
+		List<WebElement> accountsectionlist=eu.findElements(accountSection_cssSelector, ConstantsOpenCart.DEFAULT_TIME_OUT);
 		List<String > accountsectionlisttext=new ArrayList<String>();
 		for(WebElement s:accountsectionlist) {
 			accountsectionlisttext.add(s.getText());

@@ -5,34 +5,34 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.qa.opencart.listerner.TestAllureListener;
-import com.qa.opencart.utility.Constants;
+import com.qa.opencart.utility.ConstantsOpenCart;
 @Listeners(TestAllureListener.class)
 public class LogInPageTest extends BaseTest {
 	
 	@BeforeClass
 	public void setupLogInPageTest() {
 		System.out.println("******************setupLogInPageTest() started");
-		loginpage=homepage.clickOnSpecificFotterWebElement(Constants.MY_ACCOUNT_LINK, Constants.DEFAULT_TIME_OUT);
+		loginpage=homepage.clickOnSpecificFotterWebElement(ConstantsOpenCart.MY_ACCOUNT_LINK, ConstantsOpenCart.DEFAULT_TIME_OUT);
 		System.out.println("***********setupLogInPageTest() ended");
 	}
 
 	@Test(priority = 4)
 	public void VerifyLoginTest() {
 		accountpage = loginpage.doLogin( prop.getProperty("username"), prop.getProperty("password"));
-		Assert.assertEquals(accountpage.getAccountPageTitle(), Constants.ACCOUNT_PAGE_TITLE);
+		Assert.assertEquals(accountpage.getAccountPageTitle(), ConstantsOpenCart.ACCOUNT_PAGE_TITLE);
 	}
 
 	@Test(priority = 1)
 	public void verifyLoginTitleTest() {
 		String actualTitle = loginpage.titleLoginPage();
-		Assert.assertEquals(actualTitle, Constants.LOGIN_PAGE_TITLE);
+		Assert.assertEquals(actualTitle, ConstantsOpenCart.LOGIN_PAGE_TITLE);
 	}
 
 	@Test(priority = 2)
 	public void verifyLoginCurrentUrlTest() {
 		String actualTitle = loginpage.getLoginPageCurrentUrl();
 		System.out.println(actualTitle);
-		Assert.assertEquals(actualTitle, Constants.LOGIN_PAGE_CURRENT_URL_FRACTION);
+		Assert.assertEquals(actualTitle, ConstantsOpenCart.LOGIN_PAGE_CURRENT_URL_FRACTION);
 	}
 	
 	@Test(priority = 3)

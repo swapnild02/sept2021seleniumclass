@@ -130,7 +130,7 @@ public class DriverFractory {
 
 	public void windowMaximized() {
 		getdriver().manage().window().maximize();
-		System.out.println("Windows Maxamized   " + driver);
+		System.out.println("Windows Maxamized   " + getdriver());
 	}
 
 	public String getScreenshot() {

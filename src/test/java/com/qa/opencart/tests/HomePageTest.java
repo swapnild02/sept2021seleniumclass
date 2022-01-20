@@ -6,7 +6,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.listerner.TestAllureListener;
-import com.qa.opencart.utility.Constants;
+import com.qa.opencart.utility.ConstantsOpenCart;
 import com.qa.opencart.utility.PagesName;
 
 import io.qameta.allure.Description;
@@ -18,34 +18,34 @@ public class HomePageTest extends BaseTest {
 	public void verifyyourStorelink() {
 		String actualResult = homepage.yourStorelink();
 		System.out.println("Actual Result is " + actualResult);
-		Assert.assertEquals(actualResult, Constants.HOME_PAGE_YOURSTORE_LINK.trim());
+		Assert.assertEquals(actualResult, ConstantsOpenCart.HOME_PAGE_YOURSTORE_LINK.trim());
 	}
 
 	@Test(priority = 1)
 	public void verifyFeatureTex() {
 		String actualResult = homepage.featuredText();
 		System.out.println("Actual Result is " + actualResult);
-		Assert.assertEquals(actualResult, Constants.HOME_PAGE_Featured.trim());
+		Assert.assertEquals(actualResult, ConstantsOpenCart.HOME_PAGE_Featured.trim());
 	}
 
 	@Test(priority = 3)
 	public void verifyOpenCartLinkPresent() {
 		String actualResult = homepage.openCartLink();
 		System.out.println("Actual Result is " + actualResult);
-		Assert.assertEquals(actualResult, Constants.HOME_PAGE_OpenCart.trim());
+		Assert.assertEquals(actualResult, ConstantsOpenCart.HOME_PAGE_OpenCart.trim());
 	}
 
 	@Test(priority = 4)
 	public void verifyPowered_ByTex() {
 		String actualResult = homepage.powered_By_Text();
 		System.out.println("Actual Result is " + actualResult);
-		Assert.assertEquals(actualResult, Constants.HOME_PAGE_Powered_By.trim());
+		Assert.assertEquals(actualResult, ConstantsOpenCart.HOME_PAGE_Powered_By.trim());
 	}
 
 	@Test(priority = 6)
 	public void verifyMenuitems() {
 		List<String> actualmenuitemdata = homepage.getmenuitemsTexts();
-		Assert.assertEquals(actualmenuitemdata, Constants.menuItemTextList());
+		Assert.assertEquals(actualmenuitemdata, ConstantsOpenCart.menuItemTextList());
 	}
 
 	// @DataProvider
@@ -114,7 +114,7 @@ public class HomePageTest extends BaseTest {
 	@Test(priority = 10)
 	public void verifyfotterpresent() {
 		List<String> actualfotterText = homepage.getTextOfFotter();
-		Assert.assertEquals(actualfotterText, Constants.fotterItemTextList());
+		Assert.assertEquals(actualfotterText, ConstantsOpenCart.fotterItemTextList());
 
 		// for(String s:actualfotterText) {
 		// System.out.println(s);

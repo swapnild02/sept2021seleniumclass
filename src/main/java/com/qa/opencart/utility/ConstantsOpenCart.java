@@ -3,7 +3,7 @@ package com.qa.opencart.utility;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Constants {
+public class ConstantsOpenCart {
 	
 	public static final String HOME_PAGE_YOURSTORE_LINK="Your Store";
 	public static final String HOME_PAGE_Featured = "Featured";

@@ -7,13 +7,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.qa.opencart.utility.Constants;
+import com.qa.opencart.utility.ConstantsOpenCart;
 
 public class AccountPageTest extends BaseTest {
 
 	@BeforeClass
 	public void accountPagesetup() {
-		loginpage=homepage.clickOnSpecificFotterWebElement(Constants.MY_ACCOUNT_LINK, Constants.DEFAULT_TIME_OUT);
+		loginpage=homepage.clickOnSpecificFotterWebElement(ConstantsOpenCart.MY_ACCOUNT_LINK, ConstantsOpenCart.DEFAULT_TIME_OUT);
 		accountpage = loginpage.doLogin( prop.getProperty("username"), prop.getProperty("password"));
 	}
 
@@ -21,20 +21,20 @@ public class AccountPageTest extends BaseTest {
 	public void verifyAccountPageTitleTest() {
 		String actualTile = accountpage.getAccountPageTitle();
 		System.out.println("Title of the Account Page is --> " + actualTile);
-		Assert.assertEquals(actualTile, Constants.ACCOUNT_PAGE_TITLE);
+		Assert.assertEquals(actualTile, ConstantsOpenCart.ACCOUNT_PAGE_TITLE);
 	}
 
 	@Test(priority = 2)
 	public void verifyAccountPageHeaderTest() {
 		String actualLink = accountpage.getAccountPageHeader();
 		System.out.println("Header of the Account Page is --> " + actualLink);
-		Assert.assertEquals(actualLink, Constants.ACCOUNT_PAGE_HEADERLINK);
+		Assert.assertEquals(actualLink, ConstantsOpenCart.ACCOUNT_PAGE_HEADERLINK);
 	}
 
 	@Test(priority = 3)
 	public void verifyaccountSectionListTest() {
 		List<String> actualaccsecText = accountpage.getAccountSecList();
-		Assert.assertEquals(actualaccsecText, Constants.accountsecList());
+		Assert.assertEquals(actualaccsecText, ConstantsOpenCart.accountsecList());
 		// This is for my reference
 		// if(actualaccsecText.equals(Constants.accountsecList())) {
 		// System.out.println("Both list are same");

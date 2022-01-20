@@ -2,16 +2,20 @@ package com.qa.opencart.tests;
 
 
 import java.util.Map;
-
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.qa.opencart.utility.ConstantsOpenCart;
+
+import bsh.org.objectweb.asm.Constants;
+
 public class ProductInfoPageTest  extends BaseTest{
 	
 	@BeforeClass
 	public void ProductInfoPagesetup() {
+		loginpage=homepage.clickOnSpecificFotterWebElement(ConstantsOpenCart.MY_ACCOUNT_LINK, ConstantsOpenCart.DEFAULT_TIME_OUT);
 		accountpage = loginpage.doLogin( prop.getProperty("username"), prop.getProperty("password"));
 		
 	}
@@ -49,6 +53,29 @@ public class ProductInfoPageTest  extends BaseTest{
 		softassert.assertAll();
 		
 		
+	}
+	
+	@DataProvider
+	public Object[][] setdataforSearchProductAndSearchMainProductSingle() {
+		return new Object[][] { { "MacBook", "MacBook Air" } 
+													 
+													
+
+		};
+	}
+	
+	
+	@Test(priority = 2,dataProvider = "setdataforSearchProductAndSearchMainProductSingle")
+	public void verifyProductMetaDataWithSingleData(String productName, String mainproductname) {
+		searchresultpage = accountpage.doSearch(productName);
+		productinfopage = searchresultpage.searchProduct(mainproductname);
+		Map<String,String> actualproduct =productinfopage.getProductInfo();
+		actualproduct.forEach((k,v)->System.out.println(k+" : "+v)) ;
+		softassert.assertEquals(actualproduct.get("Brand"), "Apple");
+		softassert.assertEquals(actualproduct.get("Product Code"), "Product 17");
+		softassert.assertEquals(actualproduct.get("Original Price"), "$100.00");
+		softassert.assertEquals(actualproduct.get("Reward Points"), "100");
+		softassert.assertAll();
 	}
 
 }
